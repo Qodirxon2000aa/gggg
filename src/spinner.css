@@ -1,58 +1,137 @@
+/* Spinner oynasi */
 .spinner-wrapper {
+  width: 420px;       /* kengaytirildi */
+  height: 200px;      /* balandroq qilindi */
+  overflow: hidden;   /* ichidagi kontent chiqmasligi uchun */
+  border-radius: 20px;
   position: relative;
-  width: 100%;
-  max-width: 300px;
-  height: 100px;
-  overflow: hidden;
-  margin: 0 auto;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(145deg, #17212b, #1c2a39);
+  margin: 0 auto 30px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
+/* Spinner track */
 .spinner-track {
   display: flex;
-  white-space: nowrap;
+  align-items: center;
   height: 100%;
-  width: max-content; /* Ensure the track is wide enough for all items */
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  gap: 0;
+  will-change: transform;
 }
 
+/* Sovg'a elementi */
 .gift-item {
-  flex: 0 0 100px; /* Fixed width for each item */
+  width: 140px;             /* kattaroq box */
+  height: 180px;            /* balandroq box */
+  flex: 0 0 auto;
+  text-align: center;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  margin: 0 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;         /* rasmlar va matn chiqmasligi */
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 10px;
-  box-sizing: border-box;
+  align-items: center;
+}
+
+.gift-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
 .gift-item img {
-  width: 50px;
-  height: 50px;
+  width: 100px;   /* kattaroq rasm */
+  height: 100px;  /* balandroq rasm */
   object-fit: contain;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+  overflow: hidden;   /* rasmlar hech qayerdan chiqmasligi */
+  border-radius: 10px;
 }
 
+/* Sovg'a narxi */
 .gift-price {
+  margin-top: 12px;
+  color: #ffd700;
+  font-size: 18px;
+  font-weight: 700;
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin-top: 5px;
-  color: #fff;
-  font-weight: bold;
+  gap: 6px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  white-space: nowrap;  /* narx matni chiqib ketmasligi */
 }
 
-.star {
-  margin-right: 5px;
-}
-
+/* Tanlov chizig‘i */
 .selector-line {
   position: absolute;
-  top: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 5px;
+  background: linear-gradient(to bottom, #00c3ff, #0078ff);
   left: 50%;
   transform: translateX(-50%);
-  width: 2px;
-  height: 100%;
-  background: red;
-  z-index: 10;
+  z-index: 5;
+  box-shadow: 0 0 12px #00bfff;
+  border-radius: 2px;
+}
+
+/* Tugmalar */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+button {
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #00bfff, #0088cc);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 136, 204, 0.5);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #00d4ff, #00a0e0);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 136, 204, 0.6);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 15px rgba(0, 136, 204, 0.5);
+}
+
+/* Select elementi */
+select {
+  padding: 14px;
+  background: linear-gradient(135deg, #00bfff, #0088cc);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+select:hover {
+  background: linear-gradient(135deg, #00d4ff, #00a0e0);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 136, 204, 0.5);
 }
